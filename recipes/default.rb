@@ -1,4 +1,7 @@
-service "ssh"
+service "ssh" do
+  provider Chef::Provider::Service::Upstart
+  supports restart: true
+end
 
 ssh_config "Port" do
   string "Port #{node[:ssh][:port]}"
